@@ -82,8 +82,8 @@ namespace KeyLight.Views
             };
 
             var window = this.Screens.All[screenId];
-            keyLightWindow.Width = window.Bounds.Width;
-            keyLightWindow.Height = window.Bounds.Height;
+            keyLightWindow.Width = window.WorkingArea.Width;
+            keyLightWindow.Height = window.WorkingArea.Height;
 
             keyLightWindow.Show();
             button.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
