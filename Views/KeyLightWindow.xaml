@@ -6,7 +6,10 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="KeyLight.Views.KeyLightWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="KeyLight">
+        Title="KeyLight"
+        ShowInTaskbar="false"
+        Topmost="true"
+        HasSystemDecorations="false">
 
         <Window.Styles>
           <Style Selector="Window">

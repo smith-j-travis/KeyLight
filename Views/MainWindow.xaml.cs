@@ -75,10 +75,7 @@ namespace KeyLight.Views
             }
 
             var keyLightWindow = new KeyLightWindow {
-                WindowStartupLocation = Avalonia.Controls.WindowStartupLocation.Manual,
-                HasSystemDecorations = false,
-                Topmost = true,
-                ShowInTaskbar = false
+                WindowStartupLocation = Avalonia.Controls.WindowStartupLocation.Manual
             };
 
             var window = this.Screens.All[screenId];

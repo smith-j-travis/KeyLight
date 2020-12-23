@@ -10,6 +10,7 @@
         Width="500"
         Height="100"
         ShowInTaskbar="false"
-        Topmost="true">
+        Topmost="true"
+        CanResize = "false">
     <TextBlock Margin="10, 10" Text="{Binding Message}" />
 </Window>

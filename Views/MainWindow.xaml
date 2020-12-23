@@ -8,7 +8,8 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="KeyLight"
         Width="800"
-        Height="500">
+        Height="500"
+        CanResize="false">
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
