@@ -19,7 +19,6 @@ namespace KeyLight
             {
                 desktop.MainWindow = new MainWindow
                 {
-                    DataContext = new MainWindowViewModel(),
                     WindowStartupLocation = Avalonia.Controls.WindowStartupLocation.Manual
                 };
             }
