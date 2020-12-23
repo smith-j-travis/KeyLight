@@ -9,6 +9,8 @@ namespace KeyLight.Views
     public class MainWindow : Window
     {
         private const int DIVISOR = 10;
+        private static SolidColorBrush WHITE = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+        private static SolidColorBrush BLACK = new SolidColorBrush(Color.FromRgb(255, 255, 255));
         private Dictionary<int, KeyLightWindow> _openedWindows = new Dictionary<int, KeyLightWindow>();
 
         public MainWindow()
@@ -32,9 +34,9 @@ namespace KeyLight.Views
                     Margin = new Avalonia.Thickness(screen.Bounds.X / DIVISOR, screen.Bounds.Y / DIVISOR),
                     Width = screen.Bounds.Width / DIVISOR,
                     Height = screen.Bounds.Height / DIVISOR,
-                    Background = new SolidColorBrush(Color.FromRgb(0, 0, 0)),
-                    Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
-                    BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0)),
+                    Background = WHITE,
+                    Foreground = BLACK,
+                    BorderBrush = WHITE,
                     BorderThickness = new Avalonia.Thickness(1)
                 };
             
@@ -65,8 +67,8 @@ namespace KeyLight.Views
 
         private void OpenKeyLight(int screenId, Button button) {
             if(this._openedWindows.ContainsKey(screenId)) {
-                button.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-                button.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                button.Foreground = BLACK;
+                button.Background = WHITE;
 
                 this._openedWindows[screenId].Close();
 
@@ -83,8 +85,8 @@ namespace KeyLight.Views
             keyLightWindow.Height = window.WorkingArea.Height;
 
             keyLightWindow.Show();
-            button.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-            button.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            button.Foreground = WHITE;
+            button.Background = BLACK;
             this._openedWindows.Add(screenId, keyLightWindow);
 
             keyLightWindow.Position = window.Bounds.Position;
