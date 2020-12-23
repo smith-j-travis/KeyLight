@@ -41,10 +41,15 @@ namespace KeyLight.Views
                 var iCopy = i;
 
                 // don't allow setting it on primary monitor
-                //TODO -- actually let the user know they can't set it
-                if(!screen.Primary)
+                if(screen.Primary) {
+                    button.Click += delegate { 
+                        new MessageBox("Cannot set keylight", "You cannot set a keylight on the primary monitor.").ShowDialog(this);
+                    };
+                }
+                else {
                     button.Click += delegate { this.OpenKeyLight(iCopy, button); };
-
+                }
+                    
                 mainFormCanvas.Children.Add(button);
             }
 
