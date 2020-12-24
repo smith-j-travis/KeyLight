@@ -19,6 +19,11 @@ namespace KeyLight.Views
             var allScreens = this.Screens.All;
             var mainFormCanvas = this.FindControl<Canvas>("displayCanvas");
             var monitorGrid = new Dictionary<int, List<int>>();
+            this.Closing += (s, e) => {
+                foreach(var openWindow in _openedWindows) {
+                    openWindow.Value.Close();
+                }
+            };
 
             for(var i = 0; i < allScreens.Count; i++) {
                 var screen = allScreens[i];
