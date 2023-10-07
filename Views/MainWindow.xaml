@@ -9,6 +9,7 @@
         Title="KeyLight"
         Width="800"
         Height="500"
+        WindowStartupLocation="CenterScreen"
         CanResize="false">
 
     <Canvas Name="displayCanvas">

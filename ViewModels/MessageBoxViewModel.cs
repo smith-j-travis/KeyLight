@@ -1,3 +1,5 @@
+using System;
+
 namespace KeyLight.ViewModels
 {
     public class MessageBoxViewModel : ViewModelBase

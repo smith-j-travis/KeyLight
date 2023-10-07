@@ -23,9 +23,10 @@ namespace KeyLight.Views
             for(var i = 0; i < allScreens.Count; i++) {
                 var screen = allScreens[i];
 
-                if(!monitorGrid.ContainsKey(screen.Bounds.Y))
+                if(!monitorGrid.ContainsKey(screen.Bounds.Y)) {
                     monitorGrid.Add(screen.Bounds.Y, new List<int> { 0, 0 });
-
+                }
+                    
                 monitorGrid[screen.Bounds.Y][0] += screen.Bounds.Width;
                 monitorGrid[screen.Bounds.Y][1] += screen.Bounds.Height;
 
@@ -43,7 +44,7 @@ namespace KeyLight.Views
                 var iCopy = i;
 
                 // don't allow setting it on primary monitor
-                if(screen.Primary) {
+                if(screen.IsPrimary) {
                     button.Click += delegate { 
                         new MessageBox("Cannot set keylight", "You cannot set a keylight on the primary monitor.").ShowDialog(this);
                     };
@@ -58,6 +59,13 @@ namespace KeyLight.Views
             var canvasSize = GetCanvasSize(monitorGrid);
             mainFormCanvas.Width = canvasSize.Item1;
             mainFormCanvas.Height = canvasSize.Item2;
+
+            this.Closing += (s, e) =>
+            {
+                foreach(var kvp in _openedWindows) {
+                    kvp.Value.Close();
+                }
+            };
         }
 
         private void InitializeComponent()
@@ -77,7 +85,7 @@ namespace KeyLight.Views
             }
 
             var keyLightWindow = new KeyLightWindow {
-                WindowStartupLocation = Avalonia.Controls.WindowStartupLocation.Manual
+                WindowStartupLocation = WindowStartupLocation.Manual
             };
 
             var window = this.Screens.All[screenId];
@@ -97,14 +105,16 @@ namespace KeyLight.Views
             var canvasHeight = 0;
             var canvasWidth = 0;
             foreach(var kvp in monitorGrid) {
-                if(kvp.Value[0] > canvasWidth)
+                if(kvp.Value[0] > canvasWidth) {
                     canvasWidth = kvp.Value[0];
-
-                if(kvp.Value[1] > canvasHeight)
+                }
+                    
+                if(kvp.Value[1] > canvasHeight) {
                     canvasHeight = kvp.Value[1];
+                }  
             }
 
-            return new Tuple<int, int> (canvasWidth / DIVISOR, canvasHeight / DIVISOR);
+            return new Tuple<int, int> (canvasWidth / (DIVISOR * 2), canvasHeight / (DIVISOR * 2));
         }
     }
 }

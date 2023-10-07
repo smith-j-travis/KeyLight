@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Avalonia.Media;
 using KeyLight.ViewModels;
 
 namespace KeyLight.Views
@@ -20,9 +17,14 @@ namespace KeyLight.Views
                 Title = title,
                 Message = message
             };
-            
 
             InitializeComponent();
+
+            var okButton = this.FindControl<Button>("OKButton");
+            okButton.IsDefault = true;
+            okButton.Click += (s, e) => {
+                this.Close();
+            };
         }
 
         private void InitializeComponent()

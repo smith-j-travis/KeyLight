@@ -9,7 +9,8 @@
         Title="KeyLight"
         ShowInTaskbar="false"
         Topmost="true"
-        HasSystemDecorations="false">
+        CanResize="false"
+        SystemDecorations="BorderOnly">
 
         <Window.Styles>
           <Style Selector="Window">

@@ -11,6 +11,11 @@
         Height="100"
         ShowInTaskbar="false"
         Topmost="true"
+        WindowStartupLocation="CenterOwner"
         CanResize = "false">
-    <TextBlock Margin="10, 10" Text="{Binding Message}" />
+        <Grid>
+            <TextBlock Margin="10, 10" Text="{Binding Message}" />
+            <Button Width="60" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="10"
+            x:Name="OKButton">OK</Button>
+        </Grid>
 </Window>

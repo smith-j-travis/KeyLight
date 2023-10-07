@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using KeyLight.ViewModels;
 using KeyLight.Views;
 
 namespace KeyLight
@@ -19,7 +18,7 @@ namespace KeyLight
             {
                 desktop.MainWindow = new MainWindow
                 {
-                    WindowStartupLocation = Avalonia.Controls.WindowStartupLocation.Manual
+                    WindowStartupLocation = Avalonia.Controls.WindowStartupLocation.CenterScreen
                 };
             }
 
